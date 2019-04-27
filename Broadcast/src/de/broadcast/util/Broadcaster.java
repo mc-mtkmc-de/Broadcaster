@@ -7,18 +7,18 @@ import java.util.Random;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 
-import de.broadcast.main.Main;
+import de.broadcast.main.Broadcast;
 import net.md_5.bungee.api.ChatColor;
 
 public class Broadcaster {
 	
-	private final long MESSAGE_DELAY = 60*20;
+	private final long MESSAGE_DELAY = 120*20;
 	private final String ROOT = "BroadcastMessages";
 	
-	private Main plugin;
+	private Broadcast plugin;
 	private FileConfiguration config;
 	
-	public Broadcaster(Main plugin) {
+	public Broadcaster(Broadcast plugin) {
 		this.plugin = plugin;
 		config = plugin.getConfig();
 		
@@ -39,7 +39,7 @@ public class Broadcaster {
 	private void createDefaults() {
 		if(config.contains(ROOT)) return;
 		List<String> defaults = new ArrayList<>();
-		for(int i = 0; i < 15; i++)
+		for(int i = 0; i < 20; i++)
 			defaults.add("&6Testnachricht Nr. " + i);
 		config.set(ROOT, defaults);
 		plugin.saveConfig();
